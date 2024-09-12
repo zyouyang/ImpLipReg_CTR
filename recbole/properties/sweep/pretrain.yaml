@@ -1,0 +1,179 @@
+program: run_recbole.py
+method: grid
+name: yelp2018-xDeepFM
+metric:
+  name: AUC
+  goal: maximize
+parameters:
+  config_files:
+    value: recbole/properties/eval_ways/point-eval.yaml
+  show_progress:
+    value: False
+  log_wandb:
+    value: True
+  model:
+    value: xDeepFM
+  contaminate:
+    value: False
+  dataset:
+    value: yelp2018
+  # dataset_save_path:
+  #   value: saved/amazon-books-Dataset.pth
+  eval_batch_size:
+    value: 4096
+  checkpoint_dir:
+    value: temp
+  train_batch_size:
+    value: 4096
+  seed:
+    value: 2020
+  embedding_size:
+    value: 16
+  # ====== WideDeep ======
+  # w/o ranking loss
+  # learning_rate:
+  #   values: [5e-4, 1e-3, 5e-3]
+  # mlp_hidden_size:
+  #   values: [[32, 32, 32], [64, 64, 64], [128, 128, 128], [256, 256, 256]]
+  # dropout_prob:
+  #   values: [0.1, 0.2, 0.5]
+  # ====== EulerNet ======
+  # ----- w/o multi-task -----
+  # learning_rate:
+  #   values: [1e-3, 5e-3]
+  # order_list:
+  #   values: [[8], [16], [32]]
+  # drop_ex:
+  #   values: [0.3, 0.5]
+  # drop_im:
+  #   values: [0.3, 0.5]
+  # apply_norm:
+  #   value: False
+  # reg_weight:
+  #   values: [0, 5e-4]
+  # ----- w/ multi-task -----
+  # multi_cls:
+  #   value: 5
+  # multi_ratio:
+  #   values: [0.05, 0.1, 0.3, 0.5]
+  # learning_rate:
+  #   values: [3e-4, 5e-4, 1e-3]
+  # order_list:
+  #   values: [[8], [16], [32]]
+  # drop_ex:
+  #   value: 0.3
+  # drop_im:
+  #   value: 0.5
+  # apply_norm:
+  #   value: False
+  # reg_weight:
+  #   values: [5e-4]
+  # ====== AutoInt ======
+  # learning_rate:
+  #   values: [1e-3, 5e-3]
+  # n_layers:
+  #   values: [3]
+  # attention_size:
+  #   values: [8, 16]
+  # num_heads:
+  #   values: [2]
+  # dropout_probs:
+  #   values: [[0.0, 0.0, 0.0], [0.2, 0.2, 0.2], [0.1, 0.1, 0.1]]
+  # mlp_hidden_size: 
+  #   values: [[64, 64, 64], [128, 128, 128], [256, 256, 256]]
+  # ------
+  # learning_rate:
+  #   value: 1e-3
+  # n_layers:
+  #   value: 3
+  # attention_size:
+  #   value: 8
+  # num_heads:
+  #   value: 2
+  # dropout_probs:
+  #   value: [0.0, 0.0, 0.0]
+  # mlp_hidden_size: 
+  #   value: [64, 64, 64]
+  # ====== DCNV2 ======
+  # dataset_save_path:
+  #   value: cache/amazon-books/amazon-books-Dataset_seed2020_point.pth
+  # learning_rate:
+  #   values: [1e-3, 5e-3]
+  # dropout_prob:
+  #   values: [0.1, 0.2]
+  # mlp_hidden_size:
+  #   values: [[256, 256], [128, 128], [64, 64]]
+  # mixed:
+  #   value: False
+  # structure:
+  #   values: ['parallel']
+  # reg_weight:
+  #   values: [2]
+  # cross_layer_num:
+  #   values: [2, 4, 6]
+  # ====== xDeepFM ======
+  learning_rate:
+    values: [1e-4, 5e-4, 5e-3]
+  mlp_hidden_size:
+    values: [[256, 256, 256], [512, 512, 512]]
+  dropout_prob:
+    values: [0.1, 0.2, 0.5]
+  reg_weight:
+    value: 5e-4
+  direct:
+    value: False
+  cin_layer_size:
+    values: [[100, 100, 100], [200, 200, 200]]
+  # ====== DeepFM ======
+  # learning_rate:
+  #   values: [1e-4, 5e-4, 1e-3, 5e-3]
+  # mlp_hidden_size:
+  #   values: [[128, 128, 128], [256, 256, 256], [512, 512, 512]]
+  # dropout_prob:
+  #   values: [0, 0.1, 0.2]
+  # ====== NFM ======
+  # learning_rate:
+  #   values: [1e-4, 5e-4, 1e-3, 5e-3]
+  # mlp_hidden_size:
+  #   values: [[128, 128, 128], [256, 256, 256], [512, 512, 512]]
+  # dropout_prob:
+  #   values: [0.1, 0.2, 0.5]
+  # ====== FM ======
+  # learning_rate:
+  #   values: [5e-5, 1e-4, 2e-4, 5e-4, 1e-3, 3e-3, 5e-3]
+  # ====== LR ======
+  # learning_rate:
+  #   values: [5e-5, 1e-4, 2e-4, 5e-4, 1e-3, 3e-3, 5e-3]
+  # ====== KD_DAGFM ======
+  # teacher:
+  #   value: CrossNet
+  # phase:
+  #   value: teacher_training
+  # learning_rate:
+  #   values: [5e-4, 1e-3, 5e-3]
+  # t_cin:
+  #   values: [[256, 256, 256], [512, 512, 512]]
+  # t_depth:
+  #   values: [2, 3]
+  # type:
+  #   value: outer
+  # depth:
+  #   value: 3
+  # alpha:
+  #   values: [0.1]
+  # beta:
+  #   values: [1000]
+  # warm_up:
+  #   value: ''
+  # ====== DCN ======
+  # cross_layer_num:
+  #   values: [3, 6]
+  # learning_rate:
+  #   values: [1e-4, 5e-4, 1e-3, 3e-3]
+  # reg_weight:
+  #   value: 2
+  # dropout_prob:
+  #   values: [0.1, 0.2]
+  # mlp_hidden_size: 
+  #   values: [[256, 64, 8], [768, 128, 8]]
+  

@@ -1,0 +1,22 @@
+# Saved models
+/saved*
+*.pth
+.github/
+.DS_Store
+.vscode/
+.idea/
+*.pyc
+*.log
+log_tensorboard
+saved/
+*.lprof
+*.egg-info/
+docs/build/
+wandb/*
+/ray_log*
+__pycache__/
+log_tensorboard/
+log*/
+dataset/*/
+temp*/
+cache*/

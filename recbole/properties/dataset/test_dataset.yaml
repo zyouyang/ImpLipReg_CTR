@@ -1,0 +1,9 @@
+threshold: {'rating': 7}
+load_col: 
+    inter: ['user_id', 'item_id', 'rating', 'explicit']
+numerical_features: []
+normalize_all: True
+user_inter_num_interval: "[3,inf)"    # (str) User interval for filtering inter, such as [A,B] / [A,B) / (A,B) / (A,B].
+item_inter_num_interval: "[3,inf)"    # (str) Item interval for filtering inter, such as [A,B] / [A,B) / (A,B) / (A,B].
+
+train_batch_size: 4096

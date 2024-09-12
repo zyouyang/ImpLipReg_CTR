@@ -1,0 +1,33 @@
+embedding_size: 16 
+eval_only: False
+train_neg_sample_args: ~
+# train_neg_sample_args:
+#   distribution: uniform
+#   sample_num: 1
+#   dynamic: False
+metrics: ['AUC', 'LogLoss']
+valid_metric: AUC
+eval_args:
+  split: {'RS':[0.8,0.1,0.1]}
+  order: RO
+  group_by: ~
+  mode: labeled
+# eval_args:                      # (dict) 4 keys: group_by, order, split, and mode
+#   split: {'RS':[0.8,0.1,0.1]}   # (dict) The splitting strategy ranging in ['RS','LS'].
+#   group_by: user                # (str) The grouping strategy ranging in ['user', 'none'].
+#   order: RO                     # (str) The ordering strategy ranging in ['RO', 'TO'].
+#   mode: uni1
+
+
+# train_neg_sample_args:
+#   distribution: uniform
+#   sample_num: 1
+#   dynamic: False
+# valid_metric: NDCG@10
+# metrics: ['NDCG', 'Recall']
+# topk: [10, 20]
+# eval_args:                      # (dict) 4 keys: group_by, order, split, and mode
+#   split: {'RS':[0.8,0.1,0.1]}   # (dict) The splitting strategy ranging in ['RS','LS'].
+#   group_by: user                # (str) The grouping strategy ranging in ['user', 'none'].
+#   order: RO                     # (str) The ordering strategy ranging in ['RO', 'TO'].
+#   mode: full

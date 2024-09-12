@@ -1,0 +1,137 @@
+program: run_recbole.py
+method: grid
+name: ml-1m-DCNV2-finetune
+metric:
+  name: ndcg@10
+  goal: maximize
+parameters:
+  config_files:
+    value: recbole/properties/eval_ways/ranking-eval.yaml
+  show_progress:
+    value: False
+  log_wandb:
+    value: True
+  model:
+    value: DCNV2
+  contaminate:
+    value: False
+  dataset:
+    value: ml-1m
+  eval_batch_size:
+    value: 4096
+  checkpoint_dir:
+    value: temp
+  train_batch_size:
+    value: 4096
+  seed:
+    value: 2020
+  embedding_size:
+    value: 16
+  eval_only:
+    value: False
+  jaclip:
+    value: True
+  stopping_step:
+    value: 5
+  # ====== AutoInt ======
+  # learning_rate:
+  #   values: [5e-4, 1e-3, 5e-3]
+  # n_layers:
+  #   values: [2, 3]
+  # attention_size:
+  #   values: [8]
+  # num_heads:
+  #   values: [4]
+  # dropout_probs:
+  #   values: [[0.2, 0.2, 0.2], [0.5, 0.5, 0.5], [0.1, 0.1, 0.1]]
+  # mlp_hidden_size: 
+  #   values: [[256, 256, 256], [512, 512, 512]]
+  # ====== DCNV2 ======
+  dropout_prob:
+    values: [0.1, 0.2]
+  checkpoint:
+    value: saved/ml-1m/DCNV2/pretrain/DCNV2-Mar-13-2024_21-30-25_seed2020.pth
+  learning_rate:
+    values: [7e-5, 1e-4]
+  jaclip_weight:
+    values: [0.07, 0.1]
+  jaclip_sample_ratio:
+    values: [0.3, 0.5, 1]
+  mlp_hidden_size:
+    value: [256, 64, 8]
+  structure:
+    value: parallel
+  reg_weight:
+    value: 2
+  cross_layer_num:
+    value: 2
+  # ====== xDeepFM ======
+  # learning_rate:
+  #   values: [1e-4, 5e-4, 5e-3]
+  # mlp_hidden_size:
+  #   values: [[256, 256, 256], [512, 512, 512]]
+  # dropout_prob:
+  #   values: [0.1, 0.2, 0.5]
+  # reg_weight:
+  #   value: 5e-4
+  # direct:
+  #   value: False
+  # cin_layer_size:
+  #   values: [[100, 100, 100], [200, 200, 200]]
+  # ====== DeepFM ======
+  # learning_rate:
+  #   values: [1e-4, 5e-4, 1e-3, 5e-3]
+  # mlp_hidden_size:
+  #   values: [[128, 128, 128], [256, 256, 256], [512, 512, 512]]
+  # dropout_prob:
+  #   values: [0, 0.1, 0.2]
+  # ====== NFM ======
+  # learning_rate:
+  #   values: [1e-4, 5e-4, 1e-3, 5e-3]
+  # mlp_hidden_size:
+  #   values: [[128, 128, 128], [256, 256, 256], [512, 512, 512]]
+  # dropout_prob:
+  #   values: [0.1, 0.2, 0.5]
+  # ====== FM ======
+  # learning_rate:
+  #   values: [5e-5, 1e-4, 2e-4, 5e-4, 1e-3, 3e-3, 5e-3]
+  # ====== LR ======
+  # learning_rate:
+  #   values: [5e-5, 1e-4, 2e-4, 5e-4, 1e-3, 3e-3, 5e-3]
+  # ====== KD_DAGFM ======
+  # teacher:
+  #   value: CrossNet
+  # phase:
+  #   value: teacher_training
+  # learning_rate:
+  #   values: [5e-4, 1e-3, 5e-3]
+  # t_cin:
+  #   values: [[256, 256, 256], [512, 512, 512]]
+  # t_depth:
+  #   values: [2, 3]
+  # type:
+  #   value: outer
+  # depth:
+  #   value: 3
+  # alpha:
+  #   values: [0.1]
+  # beta:
+  #   values: [1000]
+  # warm_up:
+  #   value: ''
+  # ====== DCN ======
+  # cross_layer_num:
+  #   value: 6
+  # learning_rate:
+  #   values: [5e-5, 7e-5, 1e-4]
+  # reg_weight:
+  #   value: 2
+  # dropout_prob:
+  #   values: [0.1, 0.2, 0.5]
+  # mlp_hidden_size: 
+  #   value: [256, 64, 8]
+  # jaclip_weight:
+  #   values: [0.05, 0.1]
+  # checkpoint:
+  #   value: saved/anime/DCN-Mar-11-2024_11-48-59_seed2020.pth
+  

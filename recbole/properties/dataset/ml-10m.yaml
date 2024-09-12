@@ -1,0 +1,16 @@
+threshold: {'rating': 7}
+load_col: 
+    inter: ['user_id', 'item_id', 'rating']
+    item: ['item_id', 'release_year', 'genre']
+
+numerical_features: []
+# normalize_all: True
+# normalize_field: ['age', 'release_year']
+user_inter_num_interval: "[10,inf)"    # (str) User interval for filtering inter, such as [A,B] / [A,B) / (A,B) / (A,B].
+item_inter_num_interval: "[10,inf)"    # (str) Item interval for filtering inter, such as [A,B] / [A,B) / (A,B) / (A,B].
+
+train_batch_size: 4096
+
+# val_interval:
+#   rating: "[0,3);(3,inf)"
+  # rating: "(3,inf)"
