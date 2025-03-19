@@ -20,5 +20,15 @@ We *(i) theoretically*, we formulate the impact of fine-grained preferences on m
 4. To apply our approach, add the hyperparameter settings `--multi_cls=5 --multi_ratio=<chosen_ratio>`. You may consult the commands in `commands.sh`.
 5. To evaluate the ranking metrics, `python recbole_rank_eval.py --checkpoint=<saved_model_checkpoint>`.
 
+## Citation
+```
+@inproceedings{ouyang2025scaled, 
+    title={Scaled Supervision is an Implicit Lipschitz Regularizer}, 
+    author={Ouyang, Zhongyu and Zhang, Chunhui and Jia, Yaning and Vosoughi, Soroush}, 
+    booktitle={Proceedings of the International AAAI Conference on Web and Social Media (ICWSM)}, 
+    year={2025}
+}
+```
+
 ### Acknowledgement
 This repository adapts from the public code repository [RecBole](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwj_oLzE7ruIAxUwGFkFHan_GDIQFnoECAkQAQ&url=https%3A%2F%2Fgithub.com%2FRUCAIBox%2FRecBole&usg=AOvVaw3tePg3tzwZUWkgSKsBHBzh&opi=89978449).
